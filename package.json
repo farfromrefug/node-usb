@@ -42,12 +42,7 @@
     "remote_path": "{version}"
   },
   "dependencies": {
-<<<<<<< HEAD
     "node-pre-gyp-prod": "1.0.3"
-=======
-    "nan": "^2.8.0",
-    "node-pre-gyp": "^0.10.0"
->>>>>>> tessel/master
   },
   "devDependencies": {
     "nan": "^2.4.0",
