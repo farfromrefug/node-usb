@@ -59,6 +59,8 @@ void USBThreadFn(void*){
 extern "C" void Initialize(Local<Object> target) {
 	Nan::HandleScope scope;
 
+	initConstants(target);
+
 	// Initialize libusb. On error, halt initialization.
 	int res = libusb_init(&usb_context);
 	target->Set(Nan::New<String>("INIT_ERROR").ToLocalChecked(), Nan::New<Number>(res));
@@ -88,7 +90,6 @@ extern "C" void Initialize(Local<Object> target) {
 	Nan::SetMethod(target, "getDeviceList", GetDeviceList);
 	Nan::SetMethod(target, "_enableHotplugEvents", EnableHotplugEvents);
 	Nan::SetMethod(target, "_disableHotplugEvents", DisableHotplugEvents);
-	initConstants(target);
 }
 
 NODE_MODULE(usb_bindings, Initialize)
